@@ -43,7 +43,7 @@
 <meta property="og:image" content="http://example.com/2021/12/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/image_13.png">
 <meta property="og:image" content="http://example.com/2021/12/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/image_14-16393018015201.png">
 <meta property="article:published_time" content="2021-12-12T08:08:09.000Z">
-<meta property="article:modified_time" content="2021-12-12T09:37:44.391Z">
+<meta property="article:modified_time" content="2021-12-12T09:42:20.100Z">
 <meta property="article:author" content="Shone">
 <meta property="article:tag" content="线性代数">
 <meta name="twitter:card" content="summary">
@@ -227,7 +227,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-12-12 16:08:09 / 修改时间：17:37:44" itemprop="dateCreated datePublished" datetime="2021-12-12T16:08:09+08:00">2021-12-12</time>
+      <time title="创建时间：2021-12-12 16:08:09 / 修改时间：17:42:20" itemprop="dateCreated datePublished" datetime="2021-12-12T16:08:09+08:00">2021-12-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -266,7 +266,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.4k</span>
+      <span>3.5k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -480,10 +480,10 @@ x+2y+z=7\\
 X=A^{-1}B
 \]</span></p>
 <img src="/2021/12/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/image_11.png" class="">
-<p>方法2：np.linalg.solve()</p>
+<p>方法2：<code>np.linalg.solve()</code></p>
 <p>前提：<span class="math inline">\(R(A)=R(A,B)=n\)</span></p>
 <img src="/2021/12/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/image_12.png" class="">
-<p>方法3：sympy.solve()</p>
+<p>方法3：<code>sympy.solve()</code></p>
 <p>全能型选手，可求解任意系数矩阵的线性方程组</p>
 <img src="/2021/12/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/image_13.png" class="">
 <p>sympy库求解系数矩阵不可逆的线性方程组示例</p>
@@ -494,7 +494,7 @@ X=A^{-1}B
 <p>两个矩阵相乘，结果为一个矩阵。</p>
 <p>当两个向量的内积为0时，这两个向量正交。</p>
 <h3 id="标准正交基">标准正交基</h3>
-<p>若$a_1,a_2,a_r <span class="math inline">\(​​​​​​是向量空间\)</span>V<span class="math inline">\(​​​​​​中的基，\)</span>a_1,a_2,a_r<span class="math inline">\(​​​​​​ 均是单位向量，而且两两正交，则称\)</span>a_1,a_2,a_r<span class="math inline">\(​​​​​​是\)</span>V$​​​​​​的标准正交基。</p>
+<p>若<span class="math inline">\(a_1,a_2,...,a_r\)</span>​​​​​​​​​是向量空间<span class="math inline">\(V\)</span>​​​​​​​​​中的基，<span class="math inline">\(a_1,a_2,...,a_r\)</span>​​​​​​​​​ 均是单位向量，而且两两正交，则称<span class="math inline">\(a_1,a_2,...,a_r\)</span>​​​​​​​​​是<span class="math inline">\(V\)</span>​​​​​​​​​的标准正交基。</p>
 <p>例如：</p>
 <p><span class="math display">\[
 e_1=\begin{vmatrix}1\\0\\0\\0\\\end{vmatrix} \quad
