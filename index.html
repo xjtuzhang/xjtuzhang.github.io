@@ -206,7 +206,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-12-12 16:08:09 / 修改时间：16:13:02" itemprop="dateCreated datePublished" datetime="2021-12-12T16:08:09+08:00">2021-12-12</time>
+      <time title="创建时间：2021-12-12 16:08:09 / 修改时间：16:30:12" itemprop="dateCreated datePublished" datetime="2021-12-12T16:08:09+08:00">2021-12-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -261,21 +261,21 @@
 <p>标量是一个数；向量是对标量的扩展，表示一组数；矩阵是对向量的扩展，可看作一组向量。</p>
 <p>习惯上，<strong>若未加申明，向量一般指列向量</strong> ，记为<span class="math inline">\(\overline x=[1,2,3,4]^T\)</span></p>
 <p>向量与数组的区别：向量属于二维数组</p>
-<hr />
+<hr>
 <h2 id="特殊的矩阵">特殊的矩阵</h2>
 <h3 id="零矩阵">零矩阵</h3>
 <p>    元素全为0的矩阵，<code>np.zeros()</code></p>
-<p><img src="线性代数基础/image/image.png" /></p>
+<p><img src="/.com//image.png"></p>
 <h3 id="单位矩阵">单位矩阵</h3>
 <p>    <code>np.eye()</code>或<code>np.identity()</code></p>
 <p>    主对角线上的元素全为1，其他位置元素都为0</p>
-<p><img src="线性代数基础/image/image_1.png" /></p>
+<p><img src="/.com//image_1.png"></p>
 <h3 id="对角矩阵">对角矩阵</h3>
 <p>    <code>np.diag()</code></p>
 <p>    主对角线上含有非零元素，其它位置元素都为0</p>
-<p><img src="线性代数基础/image/image_2.png" /></p>
+<p><img src="/.com//image_2.png"></p>
 <p>    <strong>对角矩阵的转置为其本身</strong></p>
-<p><img src="线性代数基础/image/image_3.png" /></p>
+<p><img src="/.com//image_3.png"></p>
 <h3 id="上三角矩阵">上三角矩阵</h3>
 <p>    主对角线之上非0，主对角线之下都为0</p>
 <p>    <code>np.triu(matrix, k)</code>可以获取矩阵matrix的上半部分</p>
@@ -286,7 +286,7 @@
 <p>    <code>np.tril(matrix, k)</code>可以获取矩阵matrix的上半部分</p>
 <p>        <code>k=0</code>表示：主对角线存在于处理后的矩阵中</p>
 <p>        <code>k=-1</code>表示：处理后的矩阵中不包含主对角线</p>
-<hr />
+<hr>
 <h2 id="矩阵运算">矩阵运算</h2>
 <h3 id="加减法">加减法</h3>
 <p>Numpy中，矩阵的加减法对matrix类型和array类型是通用的</p>
@@ -303,7 +303,7 @@ A_{(m,p)}×B_{(p,n)}=C_{(m,n)}
 <p>    - <code>np.dot()</code></p>
 <p>    - <code>np.matmul()</code></p>
 <p>若直接使用<code>a*b</code>，其结果为：两同型矩阵对应位置的元素相乘。</p>
-<hr />
+<hr>
 <h2 id="转置矩阵">转置矩阵</h2>
 <p><span class="math display">\[
 \begin{align}
@@ -314,7 +314,7 @@ A_{(m,p)}×B_{(p,n)}=C_{(m,n)}
 &amp;(A_1A_2\cdots A_n)^T=A_n^T\cdots A_2^TA_1^T
 \end{align} 
 \]</span></p>
-<hr />
+<hr>
 <h2 id="逆矩阵">逆矩阵</h2>
 <p>矩阵没有除法运算，可以借助逆矩阵，间接实现矩阵的除法。</p>
 <p>逆矩阵类似于数学中的倒数。</p>
@@ -332,8 +332,8 @@ A_{(m,p)}×B_{(p,n)}=C_{(m,n)}
 \]</span></p>
 <p>求矩阵的逆矩阵</p>
 <p><code>np.linalg.inv()</code></p>
-<p><img src="线性代数基础/image/image_4.png" /></p>
-<hr />
+<p><img src="/.com//image_4.png"></p>
+<hr>
 <h2 id="行列式">行列式</h2>
 <p><strong>行列式是一个算式，经过计算后是一个常数。</strong></p>
 <p>行列式主要判断矩阵是否可逆，以及计算特征方程</p>
@@ -369,10 +369,10 @@ a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{nn}\\
 \]</span></p>
 <p><strong>numpy计算</strong> <code>np.linalg.det()</code></p>
 <p>行列式≠0，方阵可逆</p>
-<p><img src="线性代数基础/image/image_5.png" /></p>
+<p><img src="/.com//image_5.png"></p>
 <p>行列式=0，矩阵不可逆</p>
-<p><img src="线性代数基础/image/image_6.png" /></p>
-<hr />
+<p><img src="/.com//image_6.png"></p>
+<hr>
 <h2 id="矩阵的秩">矩阵的秩</h2>
 <p><strong>矩阵的秩可用于计算线性方程组解的数目。</strong></p>
 <p>定义：<strong>全体</strong> <strong>n</strong> <strong>维向量所构成的集合</strong> <span class="math inline">\(R^n\)</span><strong>叫做</strong> <strong>n</strong> <strong>维向量空间。</strong> <span class="math inline">\(R\)</span><strong>表示实数</strong></p>
@@ -388,7 +388,7 @@ a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{nn}\\
 <p><strong>满秩的方阵是可逆矩阵（非奇异矩阵）</strong></p>
 <p>求秩的方法1：用初等行变换将矩阵变为行阶梯矩阵，行阶梯矩阵中非零行的行数就是矩阵的秩。</p>
 <p>方法2：numpy计算 <code>np.linalg.matrix_rank()</code></p>
-<hr />
+<hr>
 <h2 id="利用矩阵求解线性方程组">利用矩阵求解线性方程组</h2>
 <h3 id="齐次线性方程组">齐次线性方程组</h3>
 <p><span class="math display">\[
@@ -423,13 +423,13 @@ x+2y+z=7\\
 \end{cases} 
 \]</span></p>
 <p>系数矩阵A</p>
-<p><img src="线性代数基础/image/image_7.png" /></p>
+<p><img src="/.com//image_7.png"></p>
 <p>常数矩阵B</p>
-<p><img src="线性代数基础/image/image_8.png" /></p>
+<p><img src="/.com//image_8.png"></p>
 <p>增广矩阵AB</p>
-<p><img src="线性代数基础/image/image_9.png" /></p>
+<p><img src="/.com//image_9.png"></p>
 <p>矩阵的秩比较</p>
-<p><img src="线性代数基础/image/image_10.png" /></p>
+<p><img src="/.com//image_10.png"></p>
 <p>求解步骤</p>
 <p>    1. 求出系数矩阵A和增广矩阵(A, B)的秩</p>
 <p>    2. 若<span class="math inline">\(R(A)=R(A,B)=n\)</span>，则可使用方法1，2，3，若不相等，使用方法3。综合考虑，只需记住方法3即可</p>
@@ -438,16 +438,16 @@ x+2y+z=7\\
 <p><span class="math display">\[
 X=A^{-1}B
 \]</span></p>
-<p><img src="线性代数基础/image/image_11.png" /></p>
+<p><img src="/.com//image_11.png"></p>
 <p>方法2：np.linalg.solve()</p>
 <p>前提：<span class="math inline">\(R(A)=R(A,B)=n\)</span></p>
-<p><img src="线性代数基础/image/image_12.png" /></p>
+<p><img src="/.com//image_12.png"></p>
 <p>方法3：sympy.solve()</p>
 <p>全能型选手，可求解任意系数矩阵的线性方程组</p>
-<p><img src="线性代数基础/image/image_13.png" /></p>
+<p><img src="/.com//image_13.png"></p>
 <p>sympy库求解系数矩阵不可逆的线性方程组示例</p>
-<p><img src="线性代数基础/image/image_14.png" /></p>
-<hr />
+<p><img src="/.com//image_14.png"></p>
+<hr>
 <h2 id="内积与正交">内积与正交</h2>
 <p>两个向量内积的结果是一个实数（标量）</p>
 <p>两个矩阵相乘，结果为一个矩阵。</p>
