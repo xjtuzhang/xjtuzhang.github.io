@@ -20,12 +20,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.8.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="目的：将研究对象形式化 向量，矩阵 标量是一个数；向量是对标量的扩展，表示一组数；矩阵是对向量的扩展，可看作一组向量。 习惯上，若未加申明，向量一般指列向量 ，记为\(\overline x&#x3D;[1,2,3,4]^T\) 向量与数组的区别：向量属于二维数组  特殊的矩阵 零矩阵     元素全为0的矩阵，np.zeros()">
+<meta name="description" content="目的：将研究对象形式化  向量，矩阵标量是一个数；向量是对标量的扩展，表示一组数；矩阵是对向量的扩展，可看作一组向量。 习惯上，若未加申明，向量一般指列向量 ，记为$\overline x&#x3D;[1,2,3,4]^T$ 向量与数组的区别：向量属于二维数组  特殊的矩阵零矩阵&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;元素全为0的矩阵，np.zeros()">
 <meta property="og:type" content="article">
 <meta property="og:title" content="线性代数基础">
 <meta property="og:url" content="http://example.com/2021/12/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="Shone">
-<meta property="og:description" content="目的：将研究对象形式化 向量，矩阵 标量是一个数；向量是对标量的扩展，表示一组数；矩阵是对向量的扩展，可看作一组向量。 习惯上，若未加申明，向量一般指列向量 ，记为\(\overline x&#x3D;[1,2,3,4]^T\) 向量与数组的区别：向量属于二维数组  特殊的矩阵 零矩阵     元素全为0的矩阵，np.zeros()">
+<meta property="og:description" content="目的：将研究对象形式化  向量，矩阵标量是一个数；向量是对标量的扩展，表示一组数；矩阵是对向量的扩展，可看作一组向量。 习惯上，若未加申明，向量一般指列向量 ，记为$\overline x&#x3D;[1,2,3,4]^T$ 向量与数组的区别：向量属于二维数组  特殊的矩阵零矩阵&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;元素全为0的矩阵，np.zeros()">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2021/12/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/image-16392996810221.png">
 <meta property="og:image" content="http://example.com/2021/12/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/image_1.png">
@@ -136,7 +136,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E7%9F%A9%E9%98%B5"><span class="nav-number">1.</span> <span class="nav-text">向量，矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E7%9A%84%E7%9F%A9%E9%98%B5"><span class="nav-number">2.</span> <span class="nav-text">特殊的矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%B6%E7%9F%A9%E9%98%B5"><span class="nav-number">2.1.</span> <span class="nav-text">零矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E4%BD%8D%E7%9F%A9%E9%98%B5"><span class="nav-number">2.2.</span> <span class="nav-text">单位矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%A7%92%E7%9F%A9%E9%98%B5"><span class="nav-number">2.3.</span> <span class="nav-text">对角矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E4%B8%89%E8%A7%92%E7%9F%A9%E9%98%B5"><span class="nav-number">2.4.</span> <span class="nav-text">上三角矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E4%B8%89%E8%A7%92%E7%9F%A9%E9%98%B5"><span class="nav-number">2.5.</span> <span class="nav-text">下三角矩阵</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E8%BF%90%E7%AE%97"><span class="nav-number">3.</span> <span class="nav-text">矩阵运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E5%87%8F%E6%B3%95"><span class="nav-number">3.1.</span> <span class="nav-text">加减法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E4%B9%98"><span class="nav-number">3.2.</span> <span class="nav-text">数乘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E4%B9%98%E6%B3%95"><span class="nav-number">3.3.</span> <span class="nav-text">矩阵的乘法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AC%E7%BD%AE%E7%9F%A9%E9%98%B5"><span class="nav-number">4.</span> <span class="nav-text">转置矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%86%E7%9F%A9%E9%98%B5"><span class="nav-number">5.</span> <span class="nav-text">逆矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="nav-number">6.</span> <span class="nav-text">行列式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E7%A7%A9"><span class="nav-number">7.</span> <span class="nav-text">矩阵的秩</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E7%9B%B8%E5%85%B3%E4%B8%8E%E7%BA%BF%E6%80%A7%E6%97%A0%E5%85%B3"><span class="nav-number">7.1.</span> <span class="nav-text">线性相关与线性无关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E7%A7%A9-1"><span class="nav-number">7.2.</span> <span class="nav-text">矩阵的秩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%A9%E4%B8%8E%E5%8F%AF%E9%80%86%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">7.3.</span> <span class="nav-text">秩与可逆的关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A9%E7%94%A8%E7%9F%A9%E9%98%B5%E6%B1%82%E8%A7%A3%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84"><span class="nav-number">8.</span> <span class="nav-text">利用矩阵求解线性方程组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%BD%90%E6%AC%A1%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84"><span class="nav-number">8.1.</span> <span class="nav-text">齐次线性方程组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E9%BD%90%E6%AC%A1%E5%85%88%E8%A1%8C%E6%96%B9%E7%A8%8B%E7%BB%84"><span class="nav-number">8.2.</span> <span class="nav-text">非齐次先行方程组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B1%82%E8%A7%A3%E6%96%B9%E6%B3%95%E7%A4%BA%E4%BE%8B"><span class="nav-number">8.3.</span> <span class="nav-text">求解方法示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E7%A7%AF%E4%B8%8E%E6%AD%A3%E4%BA%A4"><span class="nav-number">9.</span> <span class="nav-text">内积与正交</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E5%87%86%E6%AD%A3%E4%BA%A4%E5%9F%BA"><span class="nav-number">9.1.</span> <span class="nav-text">标准正交基</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E4%BA%A4%E7%9F%A9%E9%98%B5"><span class="nav-number">9.2.</span> <span class="nav-text">正交矩阵</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%EF%BC%8C%E7%9F%A9%E9%98%B5"><span class="nav-number">1.</span> <span class="nav-text">向量，矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E7%9A%84%E7%9F%A9%E9%98%B5"><span class="nav-number">2.</span> <span class="nav-text">特殊的矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%B6%E7%9F%A9%E9%98%B5"><span class="nav-number">2.1.</span> <span class="nav-text">零矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E4%BD%8D%E7%9F%A9%E9%98%B5"><span class="nav-number">2.2.</span> <span class="nav-text">单位矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%A7%92%E7%9F%A9%E9%98%B5"><span class="nav-number">2.3.</span> <span class="nav-text">对角矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E4%B8%89%E8%A7%92%E7%9F%A9%E9%98%B5"><span class="nav-number">2.4.</span> <span class="nav-text">上三角矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E4%B8%89%E8%A7%92%E7%9F%A9%E9%98%B5"><span class="nav-number">2.5.</span> <span class="nav-text">下三角矩阵</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E8%BF%90%E7%AE%97"><span class="nav-number">3.</span> <span class="nav-text">矩阵运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E5%87%8F%E6%B3%95"><span class="nav-number">3.1.</span> <span class="nav-text">加减法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E4%B9%98"><span class="nav-number">3.2.</span> <span class="nav-text">数乘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E4%B9%98%E6%B3%95"><span class="nav-number">3.3.</span> <span class="nav-text">矩阵的乘法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AC%E7%BD%AE%E7%9F%A9%E9%98%B5"><span class="nav-number">4.</span> <span class="nav-text">转置矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%86%E7%9F%A9%E9%98%B5"><span class="nav-number">5.</span> <span class="nav-text">逆矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="nav-number">6.</span> <span class="nav-text">行列式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E7%A7%A9"><span class="nav-number">7.</span> <span class="nav-text">矩阵的秩</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E7%9B%B8%E5%85%B3%E4%B8%8E%E7%BA%BF%E6%80%A7%E6%97%A0%E5%85%B3"><span class="nav-number">7.1.</span> <span class="nav-text">线性相关与线性无关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E7%A7%A9-1"><span class="nav-number">7.2.</span> <span class="nav-text">矩阵的秩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%A9%E4%B8%8E%E5%8F%AF%E9%80%86%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">7.3.</span> <span class="nav-text">秩与可逆的关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A9%E7%94%A8%E7%9F%A9%E9%98%B5%E6%B1%82%E8%A7%A3%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84"><span class="nav-number">8.</span> <span class="nav-text">利用矩阵求解线性方程组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%BD%90%E6%AC%A1%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84"><span class="nav-number">8.1.</span> <span class="nav-text">齐次线性方程组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E9%BD%90%E6%AC%A1%E5%85%88%E8%A1%8C%E6%96%B9%E7%A8%8B%E7%BB%84"><span class="nav-number">8.2.</span> <span class="nav-text">非齐次先行方程组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B1%82%E8%A7%A3%E6%96%B9%E6%B3%95%E7%A4%BA%E4%BE%8B"><span class="nav-number">8.3.</span> <span class="nav-text">求解方法示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E7%A7%AF%E4%B8%8E%E6%AD%A3%E4%BA%A4"><span class="nav-number">9.</span> <span class="nav-text">内积与正交</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E5%87%86%E6%AD%A3%E4%BA%A4%E5%9F%BA"><span class="nav-number">9.1.</span> <span class="nav-text">标准正交基</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E4%BA%A4%E7%9F%A9%E9%98%B5"><span class="nav-number">9.2.</span> <span class="nav-text">正交矩阵</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -266,14 +266,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.5k</span>
+      <span>2.7k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>6 分钟</span>
+      <span>5 分钟</span>
     </span>
 </div>
 
@@ -284,186 +284,152 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>目的：<strong>将研究对象形式化</strong></p>
-<h2 id="向量矩阵">向量，矩阵</h2>
-<p>标量是一个数；向量是对标量的扩展，表示一组数；矩阵是对向量的扩展，可看作一组向量。</p>
-<p>习惯上，<strong>若未加申明，向量一般指列向量</strong> ，记为<span class="math inline">\(\overline x=[1,2,3,4]^T\)</span></p>
+        <p>目的：<strong>将研究对象形式化</strong> </p>
+<h2 id="向量，矩阵"><a href="#向量，矩阵" class="headerlink" title="向量，矩阵"></a>向量，矩阵</h2><p>标量是一个数；向量是对标量的扩展，表示一组数；矩阵是对向量的扩展，可看作一组向量。</p>
+<p>习惯上，<strong>若未加申明，向量一般指列向量</strong> ，记为$\overline x=[1,2,3,4]^T$</p>
 <p>向量与数组的区别：向量属于二维数组</p>
-<hr />
-<h2 id="特殊的矩阵">特殊的矩阵</h2>
-<h3 id="零矩阵">零矩阵</h3>
-<p>    元素全为0的矩阵，<code>np.zeros()</code></p>
+<hr>
+<h2 id="特殊的矩阵"><a href="#特殊的矩阵" class="headerlink" title="特殊的矩阵"></a>特殊的矩阵</h2><h3 id="零矩阵"><a href="#零矩阵" class="headerlink" title="零矩阵"></a>零矩阵</h3><p>&ensp;&ensp;&ensp;&ensp;元素全为0的矩阵，<code>np.zeros()</code></p>
 <img src="/2021/12/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/image-16392996810221.png" class="">
-<h3 id="单位矩阵">单位矩阵</h3>
-<p>    <code>np.eye()</code>或<code>np.identity()</code></p>
-<p>    主对角线上的元素全为1，其他位置元素都为0</p>
+<h3 id="单位矩阵"><a href="#单位矩阵" class="headerlink" title="单位矩阵"></a>单位矩阵</h3><p>&ensp;&ensp;&ensp;&ensp;<code>np.eye()</code>或<code>np.identity()</code></p>
+<p>&ensp;&ensp;&ensp;&ensp;主对角线上的元素全为1，其他位置元素都为0</p>
 <img src="/2021/12/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/image_1.png" class="">
-<h3 id="对角矩阵">对角矩阵</h3>
-<p>    <code>np.diag()</code></p>
-<p>    主对角线上含有非零元素，其它位置元素都为0</p>
+<h3 id="对角矩阵"><a href="#对角矩阵" class="headerlink" title="对角矩阵"></a>对角矩阵</h3><p>&ensp;&ensp;&ensp;&ensp;<code>np.diag()</code></p>
+<p>&ensp;&ensp;&ensp;&ensp;主对角线上含有非零元素，其它位置元素都为0</p>
 <img src="/2021/12/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/image_2.png" class="">
-<p>    <strong>对角矩阵的转置为其本身</strong></p>
+<p>&ensp;&ensp;&ensp;&ensp;<strong>对角矩阵的转置为其本身</strong> </p>
 <img src="/2021/12/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/image_3.png" class="">
-<h3 id="上三角矩阵">上三角矩阵</h3>
-<p>    主对角线之上非0，主对角线之下都为0</p>
-<p>    <code>np.triu(matrix, k)</code>可以获取矩阵matrix的上半部分</p>
-<p>        <code>k=0</code>表示：主对角线存在于处理后的矩阵中</p>
-<p>        <code>k=1</code>表示：处理后的矩阵中不包含主对角线</p>
-<h3 id="下三角矩阵">下三角矩阵</h3>
-<p>    主对角线之上都为0，主对角线之下非0</p>
-<p>    <code>np.tril(matrix, k)</code>可以获取矩阵matrix的上半部分</p>
-<p>        <code>k=0</code>表示：主对角线存在于处理后的矩阵中</p>
-<p>        <code>k=-1</code>表示：处理后的矩阵中不包含主对角线</p>
-<hr />
-<h2 id="矩阵运算">矩阵运算</h2>
-<h3 id="加减法">加减法</h3>
-<p>Numpy中，矩阵的加减法对matrix类型和array类型是通用的</p>
-<h3 id="数乘">数乘</h3>
-<p>Numpy中，矩阵的数乘对matrix类型和array类型是通用的</p>
-<h3 id="矩阵的乘法">矩阵的乘法</h3>
-<p><span class="math display">\[
-A_{(m,p)}×B_{(p,n)}=C_{(m,n)}
-\]</span></p>
-<p>Numpy中，对于array类型和matrix类型，实现矩阵乘法的方法不同</p>
-<ol type="1">
+<h3 id="上三角矩阵"><a href="#上三角矩阵" class="headerlink" title="上三角矩阵"></a>上三角矩阵</h3><p>&ensp;&ensp;&ensp;&ensp;主对角线之上非0，主对角线之下都为0</p>
+<p>&ensp;&ensp;&ensp;&ensp;<code>np.triu(matrix, k)</code>可以获取矩阵matrix的上半部分</p>
+<p>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<code>k=0</code>表示：主对角线存在于处理后的矩阵中</p>
+<p>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<code>k=1</code>表示：处理后的矩阵中不包含主对角线</p>
+<h3 id="下三角矩阵"><a href="#下三角矩阵" class="headerlink" title="下三角矩阵"></a>下三角矩阵</h3><p>&ensp;&ensp;&ensp;&ensp;主对角线之上都为0，主对角线之下非0</p>
+<p>&ensp;&ensp;&ensp;&ensp;<code>np.tril(matrix, k)</code>可以获取矩阵matrix的上半部分</p>
+<p>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<code>k=0</code>表示：主对角线存在于处理后的矩阵中</p>
+<p>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<code>k=-1</code>表示：处理后的矩阵中不包含主对角线</p>
+<hr>
+<h2 id="矩阵运算"><a href="#矩阵运算" class="headerlink" title="矩阵运算"></a>矩阵运算</h2><h3 id="加减法"><a href="#加减法" class="headerlink" title="加减法"></a>加减法</h3><p>Numpy中，矩阵的加减法对matrix类型和array类型是通用的</p>
+<h3 id="数乘"><a href="#数乘" class="headerlink" title="数乘"></a>数乘</h3><p>Numpy中，矩阵的数乘对matrix类型和array类型是通用的</p>
+<h3 id="矩阵的乘法"><a href="#矩阵的乘法" class="headerlink" title="矩阵的乘法"></a>矩阵的乘法</h3><script type="math/tex; mode=display">
+A_{(m,p)}×B_{(p,n)}=C_{(m,n)}</script><p>Numpy中，对于array类型和matrix类型，实现矩阵乘法的方法不同</p>
+<ol>
 <li>array类型</li>
 </ol>
 <ul>
-<li><p><code>np.dot()</code></p></li>
-<li><p><code>np.matmul()</code></p></li>
+<li><p><code>np.dot()</code></p>
+</li>
+<li><p><code>np.matmul()</code></p>
+</li>
 </ul>
 <p>若直接使用<code>a*b</code>，其结果为：两同型矩阵对应位置的元素相乘。</p>
-<hr />
-<h2 id="转置矩阵">转置矩阵</h2>
-<p><span class="math display">\[
+<hr>
+<h2 id="转置矩阵"><a href="#转置矩阵" class="headerlink" title="转置矩阵"></a>转置矩阵</h2><script type="math/tex; mode=display">
 \begin{align}
-&amp;(A^T)^T=A\\
-&amp;(A+B)^T=A^T+B^T\\
-&amp;(\lambda A)^T=\lambda A^T\\
-&amp;(AB)^T=B^TA^T\\
-&amp;(A_1A_2\cdots A_n)^T=A_n^T\cdots A_2^TA_1^T
-\end{align}
-\]</span></p>
-<hr />
-<h2 id="逆矩阵">逆矩阵</h2>
-<p>矩阵没有除法运算，可以借助逆矩阵，间接实现矩阵的除法。</p>
+&(A^T)^T=A\\
+&(A+B)^T=A^T+B^T\\
+&(\lambda A)^T=\lambda A^T\\
+&(AB)^T=B^TA^T\\
+&(A_1A_2\cdots A_n)^T=A_n^T\cdots A_2^TA_1^T
+\end{align}</script><hr>
+<h2 id="逆矩阵"><a href="#逆矩阵" class="headerlink" title="逆矩阵"></a>逆矩阵</h2><p>矩阵没有除法运算，可以借助逆矩阵，间接实现矩阵的除法。</p>
 <p>逆矩阵类似于数学中的倒数。</p>
 <p>对于n阶方阵A，若存在n阶方阵B，使得<code>AB=BA=E</code>，（E为单位矩阵），称A和B互为逆矩阵，若A可逆，则其逆矩阵B是唯一的。</p>
-<p><strong>可逆的性质，只能用于方阵</strong></p>
+<p><strong>可逆的性质，只能用于方阵</strong> </p>
 <p>不是所有的方阵都有逆矩阵，没有逆矩阵的方阵称为<strong>奇异矩阵或不可逆矩阵</strong> ；有逆矩阵的方阵称为<strong>非奇异矩阵或可逆矩阵</strong> 。</p>
 <p>逆矩阵性质</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 \begin{align}
-&amp;(A^{-1})^{-1}=A\\
-&amp;(A^{T})^{-1}=(A^{-1})^{T}\\
-&amp;(\lambda A)^{-1}=\frac{1}{\lambda} A^{-1}\\
-&amp;(AB)^{-1}=B^{-1}A^{-1}
-\end{align} 
-\]</span></p>
-<p>求矩阵的逆矩阵</p>
+&(A^{-1})^{-1}=A\\
+&(A^{T})^{-1}=(A^{-1})^{T}\\
+&(\lambda A)^{-1}=\frac{1}{\lambda} A^{-1}\\
+&(AB)^{-1}=B^{-1}A^{-1}
+\end{align}</script><p>求矩阵的逆矩阵</p>
 <p><code>np.linalg.inv()</code></p>
 <img src="/2021/12/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/image_4.png" class="">
-<hr />
-<h2 id="行列式">行列式</h2>
-<p><strong>行列式是一个算式，经过计算后是一个常数。</strong></p>
+<hr>
+<h2 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h2><p><strong>行列式是一个算式，经过计算后是一个常数。</strong> </p>
 <p>行列式主要判断矩阵是否可逆，以及计算特征方程</p>
-<p><strong>行列式与矩阵的区别</strong></p>
+<p><strong>行列式与矩阵的区别</strong> </p>
 <p><strong>行列式</strong></p>
-<ol type="1">
+<ol>
 <li>行数等于列数</li>
-<li>一定是方阵，共有<span class="math inline">\(n^2\)</span>​个元素</li>
+<li>一定是方阵，共有$n^2$​个元素</li>
 <li>本质为一个数值</li>
 </ol>
 <p><strong>矩阵</strong></p>
-<ol type="1">
+<ol>
 <li>行数可以不等于列数</li>
-<li>共有<span class="math inline">\(m*n\)</span>个元素</li>
+<li>共有$m*n$个元素</li>
 <li>本质是一个数表</li>
 </ol>
-<p><strong>行列式的值可用于判断方阵是否可逆</strong></p>
+<p><strong>行列式的值可用于判断方阵是否可逆</strong> </p>
 <ul>
-<li><p>当矩阵对应的行列式不为0，矩阵可逆</p></li>
-<li><p>当行列式为0，矩阵不可逆</p></li>
+<li><p>当矩阵对应的行列式不为0，矩阵可逆</p>
+</li>
+<li><p>当行列式为0，矩阵不可逆</p>
+</li>
 </ul>
 <p><strong>n阶行列式的定义</strong> （计算式）</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 \begin{vmatrix} 
-a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n}\\ 
-a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n}\\ 
-\vdots &amp; \vdots &amp; &amp; \vdots\\
-a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{nn}\\
+a_{11} & a_{12} & \cdots & a_{1n}\\ 
+a_{21} & a_{22} & \cdots & a_{2n}\\ 
+\vdots & \vdots & & \vdots\\
+a_{n1} & a_{n2} & \cdots & a_{nn}\\
 \end{vmatrix} \quad
-=\sum_{j_1j_2...j_n}(-1)^ta_{1j_1}a_{2j_2}\cdots a_{nj_n}
-\]</span></p>
-<p>式中：<span class="math inline">\(j_1j_2...j_n\)</span>是<span class="math inline">\(1,2,...n\)</span>的一个排列，<span class="math inline">\(\sum_{j_1j_2...j_n}\)</span>是对<span class="math inline">\(j_1j_2...j_n\)</span>取遍<span class="math inline">\(1,2,...n\)</span>的一切排列求和，共有<span class="math inline">\(n!\)</span>项。t为排列<span class="math inline">\(j_1j_2...j_n\)</span>的逆序数。</p>
-<p><strong>逆序数</strong></p>
+=\sum_{j_1j_2...j_n}(-1)^ta_{1j_1}a_{2j_2}\cdots a_{nj_n}</script><p>式中：$j_1j_2…j_n$是$1,2,…n$的一个排列，$\sum_{j_1j_2…j_n}$是对$j_1j_2…j_n$取遍$1,2,…n$的一切排列求和，共有$n!$项。t为排列$j_1j_2…j_n$的逆序数。</p>
+<p><strong>逆序数</strong> </p>
 <ul>
-<li><p>一个排列中逆序的总数就称为这个排列的<strong>逆序数</strong></p></li>
-<li><p>示例：2431中，21，43，41，31是逆序，逆序数是4</p></li>
+<li><p>一个排列中逆序的总数就称为这个排列的<strong>逆序数</strong> </p>
+</li>
+<li><p>示例：2431中，21，43，41，31是逆序，逆序数是4</p>
+</li>
 </ul>
-<p><strong>行列式的性质</strong></p>
-<p><span class="math display">\[
-|A|^{-1}=\frac{1}{|A|}
-\]</span></p>
-<p><strong>numpy计算</strong> <code>np.linalg.det()</code></p>
+<p><strong>行列式的性质</strong> </p>
+<script type="math/tex; mode=display">
+|A|^{-1}=\frac{1}{|A|}</script><p><strong>numpy计算</strong> <code>np.linalg.det()</code></p>
 <p>行列式≠0，方阵可逆</p>
 <img src="/2021/12/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/image_5.png" class="">
 <p>行列式=0，矩阵不可逆</p>
 <img src="/2021/12/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/image_6.png" class="">
-<hr />
-<h2 id="矩阵的秩">矩阵的秩</h2>
-<p><strong>矩阵的秩可用于计算线性方程组解的数目。</strong></p>
-<p>定义：<strong>全体</strong> <strong>n</strong> <strong>维向量所构成的集合</strong> <span class="math inline">\(R^n\)</span><strong>叫做</strong> <strong>n</strong> <strong>维向量空间。</strong> <span class="math inline">\(R\)</span><strong>表示实数</strong></p>
-<h3 id="线性相关与线性无关">线性相关与线性无关</h3>
-<p>若一个向量组<strong>线性无关</strong> ，则表示，向量组内的任何一个向量都不能被其他向量线性表示，即每个向量都可以看作是有价值的内容，不能被其它向量取代。</p>
+<hr>
+<h2 id="矩阵的秩"><a href="#矩阵的秩" class="headerlink" title="矩阵的秩"></a>矩阵的秩</h2><p><strong>矩阵的秩可用于计算线性方程组解的数目。</strong> </p>
+<p>定义：<strong>全体</strong> <strong>n</strong> <strong>维向量所构成的集合</strong> $R^n$<strong>叫做</strong> <strong>n</strong> <strong>维向量空间。</strong> $R$<strong>表示实数</strong> </p>
+<h3 id="线性相关与线性无关"><a href="#线性相关与线性无关" class="headerlink" title="线性相关与线性无关"></a>线性相关与线性无关</h3><p>若一个向量组<strong>线性无关</strong> ，则表示，向量组内的任何一个向量都不能被其他向量线性表示，即每个向量都可以看作是有价值的内容，不能被其它向量取代。</p>
 <p>若一个向量组<strong>线性相关</strong> ，则至少有一个向量可以由其他向量线性表示，因此，这个向量可以被看作是多余的向量，可以被其他向量取代，删除这个向量不影响有价值的内容。</p>
-<h3 id="矩阵的秩-1">矩阵的秩</h3>
-<p>设矩阵<span class="math inline">\(A=(a_{ij})_{m×n}\)</span>，<span class="math inline">\(r\)</span><strong>阶子式不为0</strong> ， <strong>任何r+1阶子式全为0</strong> ，则称r为矩阵的秩。</p>
+<h3 id="矩阵的秩-1"><a href="#矩阵的秩-1" class="headerlink" title="矩阵的秩"></a>矩阵的秩</h3><p>设矩阵$A=(a_{ij})_{m×n}$，$r$<strong>阶子式不为0</strong> ， <strong>任何r+1阶子式全为0</strong> ，则称r为矩阵的秩。</p>
 <p>矩阵可以看作是一个行向量组，或者一个列向量组，矩阵的秩就是矩阵的行向量组或者列向量组的极大线性无关组中所含向量的个数。</p>
 <p>也可以理解为矩阵的秩就是有价值的内容数目。</p>
-<p><strong>秩：可以代表全体的最精简信息</strong></p>
-<h3 id="秩与可逆的关系">秩与可逆的关系</h3>
-<p><strong>满秩的方阵是可逆矩阵（非奇异矩阵）</strong></p>
+<p><strong>秩：可以代表全体的最精简信息</strong> </p>
+<h3 id="秩与可逆的关系"><a href="#秩与可逆的关系" class="headerlink" title="秩与可逆的关系"></a>秩与可逆的关系</h3><p><strong>满秩的方阵是可逆矩阵（非奇异矩阵）</strong> </p>
 <p><strong>求秩</strong></p>
 <ul>
-<li><p>方法1：用初等行变换将矩阵变为行阶梯矩阵，行阶梯矩阵中非零行的行数就是矩阵的秩。</p></li>
-<li><p>方法2：numpy计算 <code>np.linalg.matrix_rank()</code></p></li>
+<li><p>方法1：用初等行变换将矩阵变为行阶梯矩阵，行阶梯矩阵中非零行的行数就是矩阵的秩。</p>
+</li>
+<li><p>方法2：numpy计算 <code>np.linalg.matrix_rank()</code></p>
+</li>
 </ul>
-<hr />
-<h2 id="利用矩阵求解线性方程组">利用矩阵求解线性方程组</h2>
-<h3 id="齐次线性方程组">齐次线性方程组</h3>
-<p><span class="math display">\[
-A_{(m,n)}X_{(n,1)}=0
-\]</span></p>
-<p>A为常数矩阵，X为未知数向量。</p>
-<p><span class="math display">\[
+<hr>
+<h2 id="利用矩阵求解线性方程组"><a href="#利用矩阵求解线性方程组" class="headerlink" title="利用矩阵求解线性方程组"></a>利用矩阵求解线性方程组</h2><h3 id="齐次线性方程组"><a href="#齐次线性方程组" class="headerlink" title="齐次线性方程组"></a>齐次线性方程组</h3><script type="math/tex; mode=display">
+A_{(m,n)}X_{(n,1)}=0</script><p>A为常数矩阵，X为未知数向量。</p>
+<script type="math/tex; mode=display">
 \begin{align}
-&amp;R(A)=n, \quad 只有0解\\
-&amp;R(A)=r&lt;n,\quad有非零解但不唯一，解集S的秩R(S)=n-r 
-\end{align} 
-\]</span></p>
-<h3 id="非齐次先行方程组">非齐次先行方程组</h3>
-<p><span class="math display">\[
-A_{(m,n)}X_{(n,1)}=b
-\]</span></p>
-<p>记增广矩阵为B，则</p>
-<p><span class="math display">\[
+&R(A)=n, \quad 只有0解\\
+&R(A)=r<n,\quad有非零解但不唯一，解集S的秩R(S)=n-r 
+\end{align}</script><h3 id="非齐次先行方程组"><a href="#非齐次先行方程组" class="headerlink" title="非齐次先行方程组"></a>非齐次先行方程组</h3><script type="math/tex; mode=display">
+A_{(m,n)}X_{(n,1)}=b</script><p>记增广矩阵为B，则</p>
+<script type="math/tex; mode=display">
 \begin{align}
-&amp;R(A)&lt;R(B), \quad 无解\\
-&amp;R(A)=R(B)=n, \quad 有唯一解\\
-&amp;R(A)=R(B)&lt;n,\quad 无穷多解
-\end{align} 
-\]</span></p>
-<h3 id="求解方法示例">求解方法示例</h3>
-<p>方程组</p>
-<p><span class="math display">\[
+&R(A)<R(B), \quad 无解\\
+&R(A)=R(B)=n, \quad 有唯一解\\
+&R(A)=R(B)<n,\quad 无穷多解
+\end{align}</script><h3 id="求解方法示例"><a href="#求解方法示例" class="headerlink" title="求解方法示例"></a>求解方法示例</h3><p>方程组</p>
+<script type="math/tex; mode=display">
 \begin{cases}
 x+2y+z=7\\
 2x-y+3z=7\\
 3x+y+2z=18
-\end{cases} 
-\]</span></p>
-<p>系数矩阵A</p>
+\end{cases}</script><p>系数矩阵A</p>
 <img src="/2021/12/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/image_7.png" class="">
 <p>常数矩阵B</p>
 <img src="/2021/12/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/image_8.png" class="">
@@ -472,39 +438,32 @@ x+2y+z=7\\
 <p>矩阵的秩比较</p>
 <img src="/2021/12/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/image_10.png" class="">
 <p>求解步骤</p>
-<p>    1. 求出系数矩阵A和增广矩阵(A, B)的秩</p>
-<p>    2. 若<span class="math inline">\(R(A)=R(A,B)=n\)</span>，则可使用方法1，2，3，若不相等，使用方法3。综合考虑，只需记住方法3即可</p>
+<p>&ensp;&ensp;&ensp;&ensp;1. 求出系数矩阵A和增广矩阵(A, B)的秩</p>
+<p>&ensp;&ensp;&ensp;&ensp;2. 若$R(A)=R(A,B)=n$，则可使用方法1，2，3，若不相等，使用方法3。综合考虑，只需记住方法3即可</p>
 <p>方法1：利用逆矩阵直接计算</p>
-<p>前提：<span class="math inline">\(R(A)=R(A,B)=n\)</span></p>
-<p><span class="math display">\[
-X=A^{-1}B
-\]</span></p>
-<img src="/2021/12/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/image_11.png" class="">
+<p>前提：$R(A)=R(A,B)=n$</p>
+<script type="math/tex; mode=display">
+X=A^{-1}B</script><img src="/2021/12/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/image_11.png" class="">
 <p>方法2：<code>np.linalg.solve()</code></p>
-<p>前提：<span class="math inline">\(R(A)=R(A,B)=n\)</span></p>
+<p>前提：$R(A)=R(A,B)=n$</p>
 <img src="/2021/12/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/image_12.png" class="">
 <p>方法3：<code>sympy.solve()</code></p>
 <p>全能型选手，可求解任意系数矩阵的线性方程组</p>
 <img src="/2021/12/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/image_13.png" class="">
 <p>sympy库求解系数矩阵不可逆的线性方程组示例</p>
 <img src="/2021/12/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/image_14-16393018015201.png" class="">
-<hr />
-<h2 id="内积与正交">内积与正交</h2>
-<p>两个向量内积的结果是一个实数（标量）</p>
+<hr>
+<h2 id="内积与正交"><a href="#内积与正交" class="headerlink" title="内积与正交"></a>内积与正交</h2><p>两个向量内积的结果是一个实数（标量）</p>
 <p>两个矩阵相乘，结果为一个矩阵。</p>
 <p>当两个向量的内积为0时，这两个向量正交。</p>
-<h3 id="标准正交基">标准正交基</h3>
-<p>若<span class="math inline">\(a_1,a_2,...,a_r\)</span>​​​​​​​​​是向量空间<span class="math inline">\(V\)</span>​​​​​​​​​中的基，<span class="math inline">\(a_1,a_2,...,a_r\)</span>​​​​​​​​​ 均是单位向量，而且两两正交，则称<span class="math inline">\(a_1,a_2,...,a_r\)</span>​​​​​​​​​是<span class="math inline">\(V\)</span>​​​​​​​​​的标准正交基。</p>
+<h3 id="标准正交基"><a href="#标准正交基" class="headerlink" title="标准正交基"></a>标准正交基</h3><p>若$a_1,a_2,…,a_r$​​​​​​​​​是向量空间$V$​​​​​​​​​中的基，$a_1,a_2,…,a_r$​​​​​​​​​ 均是单位向量，而且两两正交，则称$a_1,a_2,…,a_r$​​​​​​​​​是$V$​​​​​​​​​的标准正交基。</p>
 <p>例如：</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 e_1=\begin{vmatrix}1\\0\\0\\0\\\end{vmatrix} \quad
 e_2=\begin{vmatrix}0\\1\\0\\0\\\end{vmatrix} \quad
 e_3=\begin{vmatrix}0\\0\\1\\0\\\end{vmatrix} \quad
-e_4=\begin{vmatrix}0\\0\\0\\1\\\end{vmatrix} \quad
-\]</span></p>
-<p>是四维空间<span class="math inline">\(R^4\)</span>的一个标准正交基</p>
-<h3 id="正交矩阵">正交矩阵</h3>
-<p>若n阶方阵A满足<span class="math inline">\(A^TA=E\)</span>或<span class="math inline">\(AA^T=E\)</span>，则称A为正交矩阵，简称正交阵。</p>
+e_4=\begin{vmatrix}0\\0\\0\\1\\\end{vmatrix} \quad</script><p>是四维空间$R^4$的一个标准正交基</p>
+<h3 id="正交矩阵"><a href="#正交矩阵" class="headerlink" title="正交矩阵"></a>正交矩阵</h3><p>若n阶方阵A满足$A^TA=E$或$AA^T=E$，则称A为正交矩阵，简称正交阵。</p>
 <p>方阵A为正交矩阵的充要条件为：A的列(行)向量都是单位向量，且两两正交。</p>
 
     </div>

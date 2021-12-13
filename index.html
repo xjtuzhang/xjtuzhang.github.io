@@ -244,7 +244,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>4.2k</span>
+      <span>4.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -262,19 +262,17 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><strong>目的：从数据中提取重要信息</strong></p>
-<h2 id="特征值与特征向量">特征值与特征向量</h2>
-<p>特征值与特征向量是线性代数的核心内容，也是方阵的属性之一。</p>
+          <p><strong>目的：从数据中提取重要信息</strong> </p>
+<h2 id="特征值与特征向量"><a href="#特征值与特征向量" class="headerlink" title="特征值与特征向量"></a>特征值与特征向量</h2><p>特征值与特征向量是线性代数的核心内容，也是方阵的属性之一。</p>
 <p>在机器学习中应用十分广泛，可应用在<strong>降维</strong> 、<strong>特征提取</strong> 、<strong>图像压缩</strong> 等领域。</p>
-<h3 id="解释">解释</h3>
-<p>矩阵和向量的乘法可以理解为矩阵将二维平面中的一点，变换为另外一个点。</p>
+<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p>矩阵和向量的乘法可以理解为矩阵将二维平面中的一点，变换为另外一个点。</p>
 <p>矩阵与向量相乘，是对向量进行线性变换，是对原始向量同时施加方向和长度的变化。</p>
 <p>通常情况下，绝大部分向量在经过矩阵变换后，方向和大小都发生了变化，但存在一些特殊的向量，在经过矩阵变换后，只有大小发生了变化，方向没变。例如:</p>
-<p><span class="math display">\[
-A×C=\begin{vmatrix} 4&amp;2\\1&amp;5 \end{vmatrix}×\begin{vmatrix} 1\\1\end{vmatrix}=\begin{vmatrix} 6\\6\end{vmatrix}=6\begin{vmatrix} 1\\1\end{vmatrix}\quad
-AC = 6C
-\]</span></p>
-<p>用数学公式表示为：</p>
+<script type="math/tex; mode=display">
+A×C=\begin{vmatrix} 4&2\\1&5 \end{vmatrix}×\begin{vmatrix} 1\\1\end{vmatrix}=\begin{vmatrix} 6\\6\end{vmatrix}=6\begin{vmatrix} 1\\1\end{vmatrix}\quad
+AC = 6C</script><p>用数学公式表示为：</p>
+<script type="math/tex; mode=display">
+Ax=\lambda x</script><p>称$\lambda$为矩阵A的特征值，$x$为矩阵A的特征向量。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/12/12/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/#more" rel="contents">
@@ -365,14 +363,14 @@ AC = 6C
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.5k</span>
+      <span>2.7k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>6 分钟</span>
+      <span>5 分钟</span>
     </span>
 </div>
 
@@ -383,15 +381,12 @@ AC = 6C
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>目的：<strong>将研究对象形式化</strong></p>
-<h2 id="向量矩阵">向量，矩阵</h2>
-<p>标量是一个数；向量是对标量的扩展，表示一组数；矩阵是对向量的扩展，可看作一组向量。</p>
-<p>习惯上，<strong>若未加申明，向量一般指列向量</strong> ，记为<span class="math inline">\(\overline x=[1,2,3,4]^T\)</span></p>
+          <p>目的：<strong>将研究对象形式化</strong> </p>
+<h2 id="向量，矩阵"><a href="#向量，矩阵" class="headerlink" title="向量，矩阵"></a>向量，矩阵</h2><p>标量是一个数；向量是对标量的扩展，表示一组数；矩阵是对向量的扩展，可看作一组向量。</p>
+<p>习惯上，<strong>若未加申明，向量一般指列向量</strong> ，记为$\overline x=[1,2,3,4]^T$</p>
 <p>向量与数组的区别：向量属于二维数组</p>
 <hr>
-<h2 id="特殊的矩阵">特殊的矩阵</h2>
-<h3 id="零矩阵">零矩阵</h3>
-<p>    元素全为0的矩阵，<code>np.zeros()</code></p>
+<h2 id="特殊的矩阵"><a href="#特殊的矩阵" class="headerlink" title="特殊的矩阵"></a>特殊的矩阵</h2><h3 id="零矩阵"><a href="#零矩阵" class="headerlink" title="零矩阵"></a>零矩阵</h3><p>&ensp;&ensp;&ensp;&ensp;元素全为0的矩阵，<code>np.zeros()</code></p>
 <img src="/2021/12/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/image-16392996810221.png" class>
           <!--noindex-->
             <div class="post-button">
@@ -480,7 +475,7 @@ AC = 6C
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>181</span>
+      <span>175</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -499,21 +494,18 @@ AC = 6C
     
     <div class="post-body" itemprop="articleBody">
           <p>这是本站的第一篇文章，用于常用功能的测试。</p>
-<h2 id="公式">公式</h2>
-<p><strong>行间公式</strong> <span class="math display">\[
-E(X)=\int xf(x)dx
-\]</span></p>
-<p><strong>行内公式</strong></p>
-<p>这是一个行内公式：<span class="math inline">\(f(x)=e^x\)</span>​</p>
-<h2 id="代码">代码</h2>
-<p><strong>代码块测试</strong></p>
+<h2 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h2><p><strong>行间公式</strong></p>
+<script type="math/tex; mode=display">
+E(X)=\int xf(x)dx</script><p><strong>行内公式</strong></p>
+<p>这是一个行内公式：$f(x)=e^x$​</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p><strong>代码块测试</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
 <span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
 
 <span class="token keyword">def</span> <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hello World!"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>行内代码：<code>import pandas as pd</code></p>
-<h2 id="文本">文本</h2>
+<h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/12/11/demo/#more" rel="contents">
@@ -613,15 +605,11 @@ E(X)=\int xf(x)dx
     
     <div class="post-body" itemprop="articleBody">
           <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/12/11/hello-world/#more" rel="contents">

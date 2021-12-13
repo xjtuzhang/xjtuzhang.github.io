@@ -20,12 +20,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.8.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="目的：从数据中提取重要信息 特征值与特征向量 特征值与特征向量是线性代数的核心内容，也是方阵的属性之一。 在机器学习中应用十分广泛，可应用在降维 、特征提取 、图像压缩 等领域。 解释 矩阵和向量的乘法可以理解为矩阵将二维平面中的一点，变换为另外一个点。 矩阵与向量相乘，是对向量进行线性变换，是对原始向量同时施加方向和长度的变化。 通常情况下，绝大部分向量在经过矩阵变换后，方向和大小">
+<meta name="description" content="目的：从数据中提取重要信息  特征值与特征向量特征值与特征向量是线性代数的核心内容，也是方阵的属性之一。 在机器学习中应用十分广泛，可应用在降维 、特征提取 、图像压缩 等领域。 解释矩阵和向量的乘法可以理解为矩阵将二维平面中的一点，变换为另外一个点。 矩阵与向量相乘，是对向量进行线性变换，是对原始向量同时施加方向和长度的变化。 通常情况下，绝大部分向量在经过矩阵变换后，方向和大小都发生了变化，但">
 <meta property="og:type" content="article">
 <meta property="og:title" content="特征值与矩阵分解">
 <meta property="og:url" content="http://example.com/2021/12/12/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/index.html">
 <meta property="og:site_name" content="Shone">
-<meta property="og:description" content="目的：从数据中提取重要信息 特征值与特征向量 特征值与特征向量是线性代数的核心内容，也是方阵的属性之一。 在机器学习中应用十分广泛，可应用在降维 、特征提取 、图像压缩 等领域。 解释 矩阵和向量的乘法可以理解为矩阵将二维平面中的一点，变换为另外一个点。 矩阵与向量相乘，是对向量进行线性变换，是对原始向量同时施加方向和长度的变化。 通常情况下，绝大部分向量在经过矩阵变换后，方向和大小">
+<meta property="og:description" content="目的：从数据中提取重要信息  特征值与特征向量特征值与特征向量是线性代数的核心内容，也是方阵的属性之一。 在机器学习中应用十分广泛，可应用在降维 、特征提取 、图像压缩 等领域。 解释矩阵和向量的乘法可以理解为矩阵将二维平面中的一点，变换为另外一个点。 矩阵与向量相乘，是对向量进行线性变换，是对原始向量同时施加方向和长度的变化。 通常情况下，绝大部分向量在经过矩阵变换后，方向和大小都发生了变化，但">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2021/12/12/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/image.png">
 <meta property="og:image" content="http://example.com/2021/12/12/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/image_1.png">
@@ -146,7 +146,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F"><span class="nav-number">1.</span> <span class="nav-text">特征值与特征向量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E9%87%8A"><span class="nav-number">1.1.</span> <span class="nav-text">解释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%A6%81%E6%80%A7%E8%B4%A8"><span class="nav-number">1.3.</span> <span class="nav-text">重要性质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.4.</span> <span class="nav-text">计算步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#numpy%E8%AE%A1%E7%AE%97"><span class="nav-number">1.5.</span> <span class="nav-text">numpy计算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-number">1.6.</span> <span class="nav-text">特殊的性质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E7%A9%BA%E9%97%B4"><span class="nav-number">2.</span> <span class="nav-text">特征空间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="nav-number">2.1.</span> <span class="nav-text">定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E5%88%86%E8%A7%A3"><span class="nav-number">3.</span> <span class="nav-text">特征值分解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E5%88%86%E8%A7%A3%E7%9A%84%E5%AE%9E%E8%B4%A8"><span class="nav-number">3.1.</span> <span class="nav-text">特征值分解的实质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%89%B9%E5%BE%81%E5%80%BC%E5%88%86%E8%A7%A3%E6%B1%82an"><span class="nav-number">3.2.</span> <span class="nav-text">使用特征值分解求\(A^n\)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3svd"><span class="nav-number">4.</span> <span class="nav-text">奇异值分解SVD</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#svd%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">4.1.</span> <span class="nav-text">SVD解决的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-2"><span class="nav-number">4.2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%973%E4%B8%AA%E5%AD%90%E7%9F%A9%E9%98%B5"><span class="nav-number">4.3.</span> <span class="nav-text">计算3个子矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#svd%E8%BF%9B%E8%A1%8C%E7%9F%A9%E9%98%B5%E8%BF%91%E4%BC%BC"><span class="nav-number">4.4.</span> <span class="nav-text">SVD进行矩阵近似</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#k%E7%9A%84%E9%80%89%E5%8F%96"><span class="nav-number">4.5.</span> <span class="nav-text">k的选取</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#svd%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B"><span class="nav-number">5.</span> <span class="nav-text">SVD应用实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#svd%E5%8E%8B%E7%BC%A9%E5%9B%BE%E5%83%8F"><span class="nav-number">5.1.</span> <span class="nav-text">SVD压缩图像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#svd%E6%8E%A8%E8%8D%90%E5%95%86%E5%93%81"><span class="nav-number">5.2.</span> <span class="nav-text">SVD推荐商品</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F"><span class="nav-number">1.</span> <span class="nav-text">特征值与特征向量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E9%87%8A"><span class="nav-number">1.1.</span> <span class="nav-text">解释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%A6%81%E6%80%A7%E8%B4%A8"><span class="nav-number">1.3.</span> <span class="nav-text">重要性质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.4.</span> <span class="nav-text">计算步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#numpy%E8%AE%A1%E7%AE%97"><span class="nav-number">1.5.</span> <span class="nav-text">numpy计算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-number">1.6.</span> <span class="nav-text">特殊的性质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E7%A9%BA%E9%97%B4"><span class="nav-number">2.</span> <span class="nav-text">特征空间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="nav-number">2.1.</span> <span class="nav-text">定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E5%88%86%E8%A7%A3"><span class="nav-number">3.</span> <span class="nav-text">特征值分解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E5%88%86%E8%A7%A3%E7%9A%84%E5%AE%9E%E8%B4%A8"><span class="nav-number">3.1.</span> <span class="nav-text">特征值分解的实质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%89%B9%E5%BE%81%E5%80%BC%E5%88%86%E8%A7%A3%E6%B1%82-A-n"><span class="nav-number">3.2.</span> <span class="nav-text">使用特征值分解求$A^n$</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3SVD"><span class="nav-number">4.</span> <span class="nav-text">奇异值分解SVD</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SVD%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">4.1.</span> <span class="nav-text">SVD解决的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-2"><span class="nav-number">4.2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%973%E4%B8%AA%E5%AD%90%E7%9F%A9%E9%98%B5"><span class="nav-number">4.3.</span> <span class="nav-text">计算3个子矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVD%E8%BF%9B%E8%A1%8C%E7%9F%A9%E9%98%B5%E8%BF%91%E4%BC%BC"><span class="nav-number">4.4.</span> <span class="nav-text">SVD进行矩阵近似</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#k%E7%9A%84%E9%80%89%E5%8F%96"><span class="nav-number">4.5.</span> <span class="nav-text">k的选取</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SVD%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B"><span class="nav-number">5.</span> <span class="nav-text">SVD应用实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SVD%E5%8E%8B%E7%BC%A9%E5%9B%BE%E5%83%8F"><span class="nav-number">5.1.</span> <span class="nav-text">SVD压缩图像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVD%E6%8E%A8%E8%8D%90%E5%95%86%E5%93%81"><span class="nav-number">5.2.</span> <span class="nav-text">SVD推荐商品</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -282,7 +282,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>4.2k</span>
+      <span>4.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -300,47 +300,37 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p><strong>目的：从数据中提取重要信息</strong></p>
-<h2 id="特征值与特征向量">特征值与特征向量</h2>
-<p>特征值与特征向量是线性代数的核心内容，也是方阵的属性之一。</p>
+        <p><strong>目的：从数据中提取重要信息</strong> </p>
+<h2 id="特征值与特征向量"><a href="#特征值与特征向量" class="headerlink" title="特征值与特征向量"></a>特征值与特征向量</h2><p>特征值与特征向量是线性代数的核心内容，也是方阵的属性之一。</p>
 <p>在机器学习中应用十分广泛，可应用在<strong>降维</strong> 、<strong>特征提取</strong> 、<strong>图像压缩</strong> 等领域。</p>
-<h3 id="解释">解释</h3>
-<p>矩阵和向量的乘法可以理解为矩阵将二维平面中的一点，变换为另外一个点。</p>
+<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p>矩阵和向量的乘法可以理解为矩阵将二维平面中的一点，变换为另外一个点。</p>
 <p>矩阵与向量相乘，是对向量进行线性变换，是对原始向量同时施加方向和长度的变化。</p>
 <p>通常情况下，绝大部分向量在经过矩阵变换后，方向和大小都发生了变化，但存在一些特殊的向量，在经过矩阵变换后，只有大小发生了变化，方向没变。例如:</p>
-<p><span class="math display">\[
-A×C=\begin{vmatrix} 4&amp;2\\1&amp;5 \end{vmatrix}×\begin{vmatrix} 1\\1\end{vmatrix}=\begin{vmatrix} 6\\6\end{vmatrix}=6\begin{vmatrix} 1\\1\end{vmatrix}\quad
-AC = 6C
-\]</span></p>
-<p>用数学公式表示为：</p>
-<p><span class="math display">\[
-Ax=\lambda x
-\]</span></p>
-<p>称<span class="math inline">\(\lambda\)</span>为矩阵A的特征值，<span class="math inline">\(x\)</span>为矩阵A的特征向量。</p>
-<h3 id="定义">定义</h3>
-<p><strong>A是</strong> <span class="math inline">\(n\)</span><strong>阶方阵，若实数</strong> <span class="math inline">\(\lambda\)</span><strong>及</strong> <span class="math inline">\(n\)</span><strong>维非零列向量</strong> <span class="math inline">\(x\)</span><strong>，使得</strong> <span class="math inline">\(Ax=\lambda x\)</span><strong>成立，则称</strong> <span class="math inline">\(\lambda\)</span><strong>是A的特征值，</strong> <span class="math inline">\(x\)</span><strong>是A对应于</strong> <span class="math inline">\(\lambda\)</span><strong>的特征向量。</strong></p>
-<h3 id="重要性质">重要性质</h3>
-<p><strong>特征值表示对应的特征向量的重要程度。</strong></p>
+<script type="math/tex; mode=display">
+A×C=\begin{vmatrix} 4&2\\1&5 \end{vmatrix}×\begin{vmatrix} 1\\1\end{vmatrix}=\begin{vmatrix} 6\\6\end{vmatrix}=6\begin{vmatrix} 1\\1\end{vmatrix}\quad
+AC = 6C</script><p>用数学公式表示为：</p>
+<script type="math/tex; mode=display">
+Ax=\lambda x</script><p>称$\lambda$为矩阵A的特征值，$x$为矩阵A的特征向量。</p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p><strong>A是</strong> $n$<strong>阶方阵，若实数</strong> $\lambda$<strong>及</strong> $n$<strong>维非零列向量</strong> $x$<strong>，使得</strong> $Ax=\lambda x$<strong>成立，则称</strong> $\lambda$<strong>是A的特征值，</strong> $x$<strong>是A对应于</strong> $\lambda$<strong>的特征向量。</strong> </p>
+<h3 id="重要性质"><a href="#重要性质" class="headerlink" title="重要性质"></a>重要性质</h3><p><strong>特征值表示对应的特征向量的重要程度。</strong> </p>
 <ul>
-<li><p><strong>特征值越大，代表包含的信息量越多</strong></p></li>
-<li><p><strong>特征值越小，代表包含的信息量越少</strong></p></li>
+<li><p><strong>特征值越大，代表包含的信息量越多</strong> </p>
+</li>
+<li><p><strong>特征值越小，代表包含的信息量越少</strong> </p>
+</li>
 </ul>
 <p>借助此性质，可以实现矩阵的压缩，即在特征值分解后，<strong>保留比较大的特征值及其对应的特征向量</strong> ，<strong>舍弃较小的特征值及其对应的特征向量</strong> ，以此达到压缩矩阵的目的。</p>
 <p>虽然数据量减少，但有用的信息量变化不大，PCA降维就是基于这种思路。</p>
-<h3 id="计算步骤">计算步骤</h3>
-<p><span class="math display">\[
+<h3 id="计算步骤"><a href="#计算步骤" class="headerlink" title="计算步骤"></a>计算步骤</h3><script type="math/tex; mode=display">
 Ax=\lambda x \\
 Ax- \lambda x=0 \\
 (A- \lambda)x=0 \\
-(A- \lambda E)x=0 \\
-\]</span></p>
-<p>根据多元齐次方程组的解的定义：</p>
-<p>要使得<span class="math inline">\(X\)</span>有非零解，则系数矩阵<span class="math inline">\((A-\lambda E)\)</span>的秩要小于<span class="math inline">\(n\)</span>，即系数矩阵的行列式等于0。</p>
-<p>因此，可通过使系数矩阵行列式为0，求得特征值，对每个特征值<span class="math inline">\(\lambda\)</span>求解齐次线性方程组<span class="math inline">\((A- \lambda E)x=0\)</span>的一个基础解系<span class="math inline">\(\alpha\)</span>，则<span class="math inline">\(\lambda\)</span>对应的全部特征向量为<span class="math inline">\(k\alpha(k\ne0)\)</span></p>
-<h3 id="numpy计算">numpy计算</h3>
-<p><code>np.linalg.eig()</code></p>
-<p>​ <strong>eig</strong> envalues：特征值</p>
-<p>​ <strong>eig</strong> envectors：特征向量</p>
+(A- \lambda E)x=0 \\</script><p>根据多元齐次方程组的解的定义：</p>
+<p>要使得$X$有非零解，则系数矩阵$(A-\lambda E)$的秩要小于$n$，即系数矩阵的行列式等于0。</p>
+<p>因此，可通过使系数矩阵行列式为0，求得特征值，对每个特征值$\lambda$求解齐次线性方程组$(A- \lambda E)x=0$的一个基础解系$\alpha$，则$\lambda$对应的全部特征向量为$k\alpha(k\ne0)$</p>
+<h3 id="numpy计算"><a href="#numpy计算" class="headerlink" title="numpy计算"></a>numpy计算</h3><p><code>np.linalg.eig()</code></p>
+<p>​    <strong>eig</strong> envalues：特征值</p>
+<p>​    <strong>eig</strong> envectors：特征向量</p>
 <p>矩阵A</p>
 <img src="/2021/12/12/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/image.png" class="">
 <p>求解特征值与特征向量</p>
@@ -352,124 +342,105 @@ Ax- \lambda x=0 \\
 <img src="/2021/12/12/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/image_4.png" class="">
 <p>根据特征值，构建特征值矩阵sigma</p>
 <img src="/2021/12/12/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/image_5.png" class="">
-<p><strong>特别注意</strong></p>
+<p><strong>特别注意</strong> </p>
 <img src="/2021/12/12/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/image_6.png" class="">
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 A\cdot X=X\cdot sigma \\
-A\cdot X \ne sigma\cdot X
-\]</span></p>
-<h3 id="特殊的性质">特殊的性质</h3>
-<ol type="1">
-<li><p><strong>对角矩阵</strong> ，<strong>上三角矩阵</strong> ，<strong>下三角矩阵</strong> 的特征值为主对角线上的元素</p></li>
-<li><p>若<span class="math inline">\(\lambda\)</span>是可逆矩阵<span class="math inline">\(A\)</span>的特征值，那么<span class="math inline">\(\lambda^{-1}\)</span>是<span class="math inline">\(A^{-1}\)</span>的特征值</p></li>
-<li><p>若<span class="math inline">\(\lambda_1, \lambda_2,...\lambda_m\)</span>是方阵<span class="math inline">\(A\)</span>的<span class="math inline">\(m\)</span>个特征值，<span class="math inline">\(p_1,p_2,...p_m\)</span>是与特征值对应的特征向量，若<span class="math inline">\(\lambda_1, \lambda_2,...\lambda_m\)</span>各不相同，则<span class="math inline">\(p_1,p_2,...p_m\)</span>线性无关</p></li>
-<li><p><strong>对称矩阵的特征值一定是正实数，不同特征值的特征向量两两正交。</strong></p></li>
+A\cdot X \ne sigma\cdot X</script><h3 id="特殊的性质"><a href="#特殊的性质" class="headerlink" title="特殊的性质"></a>特殊的性质</h3><ol>
+<li><p><strong>对角矩阵</strong> ，<strong>上三角矩阵</strong> ，<strong>下三角矩阵</strong> 的特征值为主对角线上的元素</p>
+</li>
+<li><p>若$\lambda$是可逆矩阵$A$的特征值，那么$\lambda^{-1}$是$A^{-1}$的特征值</p>
+</li>
+<li><p>若$\lambda_1, \lambda_2,…\lambda_m$是方阵$A$的$m$个特征值，$p_1,p_2,…p_m$是与特征值对应的特征向量，若$\lambda_1, \lambda_2,…\lambda_m$各不相同，则$p_1,p_2,…p_m$线性无关</p>
+</li>
+<li><p><strong>对称矩阵的特征值一定是正实数，不同特征值的特征向量两两正交。</strong> </p>
+</li>
 </ol>
-<hr />
-<h2 id="特征空间">特征空间</h2>
-<p>一个矩阵的特征值可能不唯一</p>
+<hr>
+<h2 id="特征空间"><a href="#特征空间" class="headerlink" title="特征空间"></a>特征空间</h2><p>一个矩阵的特征值可能不唯一</p>
 <p>一个特征值对应无数个特征向量，这些特征向量的方向相同，但长度不同</p>
-<h3 id="定义-1">定义</h3>
-<p>一个特征值对应的所有特征向量所组成的空间，称为特征空间。</p>
+<h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><p>一个特征值对应的所有特征向量所组成的空间，称为特征空间。</p>
 <p>当特征值确定，特征空间也确定。</p>
-<hr />
-<h2 id="特征值分解">特征值分解</h2>
-<p>特征值分解是矩阵分解的一种方法。</p>
+<hr>
+<h2 id="特征值分解"><a href="#特征值分解" class="headerlink" title="特征值分解"></a>特征值分解</h2><p>特征值分解是矩阵分解的一种方法。</p>
 <p>矩阵分解也称为矩阵因子分解，即将原始矩阵表示成新的<strong>结构简单</strong> 或者<strong>具有特殊性质</strong> 的两个或多个矩阵的乘积，类似于代数中的因子分解。</p>
 <p>矩阵分解可应用在<strong>降维</strong> 、<strong>深度学习</strong> 、<strong>聚类分析</strong> 、<strong>低维度特征学习</strong> 、<strong>推荐系统</strong> 、<strong>大数据分析</strong> 等领域。</p>
 <p>不同的矩阵分解方法具有不同的性质，适用于不同的应用领域。</p>
-<p>特征值分解的前提：矩阵<span class="math inline">\(A\)</span>必须是<span class="math inline">\(n\)</span>阶方阵且可对角化</p>
-<p><strong>特征值分解仅适用于提取方阵特征</strong></p>
-<p>特征值分解是将矩阵<span class="math inline">\(A\)</span>分解为如下形式</p>
-<p><span class="math display">\[
-A=Q\sum Q^{-1}
-\]</span></p>
-<p>其中，<span class="math inline">\(Q\)</span>是<strong>特征向量矩阵</strong> ，<span class="math inline">\(\sum\)</span>是矩阵<span class="math inline">\(A\)</span>的<strong>特征值对角矩阵</strong> ，<span class="math inline">\(Q\)</span>的第<span class="math inline">\(i\)</span>个特征列向量与<span class="math inline">\(\sum\)</span>中第<span class="math inline">\(i\)</span>行主对角线上的特征值对应。</p>
-<h3 id="特征值分解的实质"><strong>特征值分解的实质</strong></h3>
-<p><strong>求解给定矩阵的特征值和特征向量，提取出矩阵最重要的特征</strong></p>
-<h3 id="使用特征值分解求an">使用特征值分解求<span class="math inline">\(A^n\)</span></h3>
-<p><span class="math inline">\(A^n\)</span>被广泛应用在经济、粒子、生态、随机等动态系统中。</p>
-<p><span class="math display">\[
-A^2=(Q\sum Q^{-1})(Q\sum Q^{-1})=Q(\sum)^2 Q^{-1}
-\]</span></p>
-<p>递归可得</p>
-<p><span class="math display">\[
-A^n=Q(\sum)^n Q^{-1}
-\]</span></p>
-<img src="/2021/12/12/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/image_7.png" class="">
-<hr />
-<h2 id="奇异值分解svd">奇异值分解SVD</h2>
-<h3 id="svd解决的问题">SVD解决的问题</h3>
-<p><strong>SVD</strong> , Singular Value Decomposition</p>
+<p>特征值分解的前提：矩阵$A$必须是$n$阶方阵且可对角化</p>
+<p><strong>特征值分解仅适用于提取方阵特征</strong> </p>
+<p>特征值分解是将矩阵$A$分解为如下形式</p>
+<script type="math/tex; mode=display">
+A=Q\sum Q^{-1}</script><p>其中，$Q$是<strong>特征向量矩阵</strong> ，$\sum$是矩阵$A$的<strong>特征值对角矩阵</strong> ，$Q$的第$i$个特征列向量与$\sum$中第$i$行主对角线上的特征值对应。</p>
+<h3 id="特征值分解的实质"><a href="#特征值分解的实质" class="headerlink" title="特征值分解的实质"></a><strong>特征值分解的实质</strong></h3><p><strong>求解给定矩阵的特征值和特征向量，提取出矩阵最重要的特征</strong> </p>
+<h3 id="使用特征值分解求-A-n"><a href="#使用特征值分解求-A-n" class="headerlink" title="使用特征值分解求$A^n$"></a>使用特征值分解求$A^n$</h3><p>$A^n$被广泛应用在经济、粒子、生态、随机等动态系统中。</p>
+<script type="math/tex; mode=display">
+A^2=(Q\sum Q^{-1})(Q\sum Q^{-1})=Q(\sum)^2 Q^{-1}</script><p>递归可得</p>
+<script type="math/tex; mode=display">
+A^n=Q(\sum)^n Q^{-1}</script><img src="/2021/12/12/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/image_7.png" class="">
+<hr>
+<h2 id="奇异值分解SVD"><a href="#奇异值分解SVD" class="headerlink" title="奇异值分解SVD"></a>奇异值分解SVD</h2><h3 id="SVD解决的问题"><a href="#SVD解决的问题" class="headerlink" title="SVD解决的问题"></a>SVD解决的问题</h3><p><strong>SVD</strong> , Singular Value Decomposition</p>
 <p>特征值分解要求待分解的矩阵必须是n维方阵，将特征值分解算法推广到所有矩阵之上，就是更加通用的奇异值分解。</p>
-<p><strong>奇异值分解（SVD）是将</strong> <strong>任意较复杂的矩阵</strong> <strong>用更小、更简单的</strong> <strong>3个子矩阵的乘积</strong> <strong>表示，用这3个小矩阵来描述大矩阵的重要特性。</strong></p>
+<p><strong>奇异值分解（SVD）是将</strong> <strong>任意较复杂的矩阵</strong> <strong>用更小、更简单的</strong> <strong>3个子矩阵的乘积</strong> <strong>表示，用这3个小矩阵来描述大矩阵的重要特性。</strong> </p>
 <p>利用SVD可以从稀疏矩阵（矩阵中含有大量元素为0）中提取有价值的信息，减少计算量，在使用线性代数的地方，基本上都要使用SVD。</p>
-<h3 id="定义-2">定义</h3>
-<p>已证明，对于<span class="math inline">\(m×n\)</span>阶矩阵<span class="math inline">\(A\)</span>，<span class="math inline">\(A^TA\)</span>和<span class="math inline">\(AA^T\)</span>均为对称方阵，<span class="math inline">\(A^TA\)</span>是<span class="math inline">\(n\)</span>阶对称方阵，<span class="math inline">\(AA^T\)</span>是<span class="math inline">\(m\)</span>阶对称方阵</p>
-<p>并且：<span class="math inline">\(R(A^TA)=R(AA^T)=R(A)\)</span></p>
-<p>两个对称方阵的非零特征值相同，剩余的零特征值个数分别为<span class="math inline">\(n-r\)</span>和<span class="math inline">\(m-r\)</span>个。</p>
-<p><span class="math inline">\(m×n\)</span>阶矩阵<span class="math inline">\(A\)</span></p>
+<h3 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h3><p>已证明，对于$m×n$阶矩阵$A$，$A^TA$和$AA^T$均为对称方阵，$A^TA$是$n$阶对称方阵，$AA^T$是$m$阶对称方阵</p>
+<p>并且：$R(A^TA)=R(AA^T)=R(A)$</p>
+<p>两个对称方阵的非零特征值相同，剩余的零特征值个数分别为$n-r$和$m-r$个。</p>
+<p>$m×n$阶矩阵$A$</p>
 <img src="/2021/12/12/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/image_8.png" class="">
-<p><span class="math inline">\(A^TA\)</span></p>
+<p>$A^TA$</p>
 <img src="/2021/12/12/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/image_9.png" class="">
-<p><span class="math inline">\(AA^T\)</span></p>
+<p>$AA^T$</p>
 <img src="/2021/12/12/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/image_10.png" class="">
-<p><span class="math inline">\(R(A^TA)=R(AA^T)=R(A)\)</span></p>
+<p>$R(A^TA)=R(AA^T)=R(A)$</p>
 <img src="/2021/12/12/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/image_11.png" class="">
-<p><span class="math inline">\(A^TA\)</span>特征值与特征向量</p>
+<p>$A^TA$特征值与特征向量</p>
 <img src="/2021/12/12/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/image_12.png" class="">
-<p><span class="math inline">\(AA^T\)</span>特征值与特征向量</p>
+<p>$AA^T$特征值与特征向量</p>
 <img src="/2021/12/12/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/image_13.png" class="">
 <p>根据这些行者，以及：对称矩阵的特征向量均为正实数，特征向量矩阵为正交矩阵。可以得到SVD的定义：</p>
-<p>SVD对应的公式：<span class="math inline">\(A_{mn}=U_{mm}\sum_{mn} V_{nn}^T\)</span>，简记为<span class="math inline">\(A=U\sum V^T\)</span>，其中，<span class="math inline">\(U\)</span>和<span class="math inline">\(V\)</span>是正交矩阵，分别是<span class="math inline">\(AA^T\)</span> 和<span class="math inline">\(A^TA\)</span>的特征向量矩阵。</p>
+<p>SVD对应的公式：$A_{mn}=U_{mm}\sum_{mn} V_{nn}^T$，简记为$A=U\sum V^T$，其中，$U$和$V$是正交矩阵，分别是$AA^T$ 和$A^TA$的特征向量矩阵。</p>
+<div class="table-container">
 <table>
-<colgroup>
-<col style="width: 5%" />
-<col style="width: 11%" />
-<col style="width: 9%" />
-<col style="width: 54%" />
-<col style="width: 19%" />
-</colgroup>
 <thead>
-<tr class="header">
-<th style="text-align: center;">矩阵</th>
-<th style="text-align: center;">别称</th>
-<th style="text-align: center;">维度</th>
-<th style="text-align: center;">计算方式</th>
-<th style="text-align: center;">含义</th>
+<tr>
+<th style="text-align:center">矩阵</th>
+<th style="text-align:center">别称</th>
+<th style="text-align:center">维度</th>
+<th style="text-align:center">计算方式</th>
+<th style="text-align:center">含义</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(U\)</span></td>
-<td style="text-align: center;">A的左奇异矩阵</td>
-<td style="text-align: center;"><span class="math inline">\(m\)</span>行<span class="math inline">\(m\)</span>列</td>
-<td style="text-align: center;">列由<span class="math inline">\(AA^T\)</span>的单位特征向量组成</td>
-<td style="text-align: center;">包含了有关行的所有信息</td>
+<tr>
+<td style="text-align:center">$U$</td>
+<td style="text-align:center">A的左奇异矩阵</td>
+<td style="text-align:center">$m$行$m$列</td>
+<td style="text-align:center">列由$AA^T$的单位特征向量组成</td>
+<td style="text-align:center">包含了有关行的所有信息</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(\sum\)</span></td>
-<td style="text-align: center;">A的奇异值矩阵</td>
-<td style="text-align: center;"><span class="math inline">\(m\)</span>行<span class="math inline">\(n\)</span>列</td>
-<td style="text-align: center;">对角矩阵，对角元素来源于AAT或ATA的特征值的平方根（两矩阵的非0特征值相等，降序排列后一致），并且按照降序排列；值越大可以理解为越重要</td>
-<td style="text-align: center;">记录SVD过程</td>
+<tr>
+<td style="text-align:center">$\sum$</td>
+<td style="text-align:center">A的奇异值矩阵</td>
+<td style="text-align:center">$m$行$n$列</td>
+<td style="text-align:center">对角矩阵，对角元素来源于AAT或ATA的特征值的平方根（两矩阵的非0特征值相等，降序排列后一致），并且按照降序排列；值越大可以理解为越重要</td>
+<td style="text-align:center">记录SVD过程</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(V\)</span></td>
-<td style="text-align: center;">A的右奇异矩阵</td>
-<td style="text-align: center;"><span class="math inline">\(n\)</span>行<span class="math inline">\(n\)</span>列</td>
-<td style="text-align: center;">列由<span class="math inline">\(A^TA\)</span>的单位特征向量组成</td>
-<td style="text-align: center;">包含了有关列的所有信息</td>
+<tr>
+<td style="text-align:center">$V$</td>
+<td style="text-align:center">A的右奇异矩阵</td>
+<td style="text-align:center">$n$行$n$列</td>
+<td style="text-align:center">列由$A^TA$的单位特征向量组成</td>
+<td style="text-align:center">包含了有关列的所有信息</td>
 </tr>
 </tbody>
 </table>
-<h3 id="计算3个子矩阵">计算3个子矩阵</h3>
-<p><code>np.linalg.svd(A, full_matrices=1, compute_uv=1)</code></p>
-<p>    返回值：<code>u, s, v</code>，从左到右分别对应着<span class="math inline">\(U\)</span>，奇异值，<span class="math inline">\(V^T\)</span></p>
-<p>    参数1：A表示m行n列的矩阵</p>
-<p>    参数2：full_matrices，是否输出方阵，默认值为1，返回u的大小为mm，返回v的大小为nn</p>
-<p>    参数3：compute_uv，是否输出U和VT，默认值为1，表示计算U和VT，否则取0，只计算s</p>
-<p>    注意：奇异值以行向量s形式返回（并不是奇异值矩阵），为了节省存储空间。</p>
+</div>
+<h3 id="计算3个子矩阵"><a href="#计算3个子矩阵" class="headerlink" title="计算3个子矩阵"></a>计算3个子矩阵</h3><p><code>np.linalg.svd(A, full_matrices=1, compute_uv=1)</code></p>
+<p>&ensp;&ensp;&ensp;&ensp;返回值：<code>u, s, v</code>，从左到右分别对应着$U$，奇异值，$V^T$</p>
+<p>&ensp;&ensp;&ensp;&ensp;参数1：A表示m行n列的矩阵</p>
+<p>&ensp;&ensp;&ensp;&ensp;参数2：full_matrices，是否输出方阵，默认值为1，返回u的大小为mm，返回v的大小为nn</p>
+<p>&ensp;&ensp;&ensp;&ensp;参数3：compute_uv，是否输出U和VT，默认值为1，表示计算U和VT，否则取0，只计算s</p>
+<p>&ensp;&ensp;&ensp;&ensp;注意：奇异值以行向量s形式返回（并不是奇异值矩阵），为了节省存储空间。</p>
 <img src="/2021/12/12/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/image_14.png" class="">
 <img src="/2021/12/12/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/image_15.png" class="">
 <img src="/2021/12/12/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/image_16.png" class="">
@@ -478,15 +449,14 @@ A^n=Q(\sum)^n Q^{-1}
 <img src="/2021/12/12/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/image_17.png" class="">
 <p>第2步</p>
 <img src="/2021/12/12/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/image_18.png" class="">
-<p>验证公式：<span class="math inline">\(A=U\sum V^T\)</span></p>
+<p>验证公式：$A=U\sum V^T$</p>
 <p>A</p>
 <img src="/2021/12/12/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/image_19.png" class="">
-<p><span class="math inline">\(U\sum V^T\)</span></p>
+<p>$U\sum V^T$</p>
 <img src="/2021/12/12/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/image_20.png" class="">
-<h3 id="svd进行矩阵近似">SVD进行矩阵近似</h3>
-<p>奇异值越大，包含信息越多，因此可以选取合适的k值，保留比较大的奇异值及特征向量，实现用较小的数据量达到较好的矩阵近似效果，以达到压缩、降维、去除噪声和冗余数据的目的。</p>
-<p>原矩阵可近似表示为：<span class="math inline">\(A_{mn}\approx U_{mk}\sum_{kk} V_{kn}^T\)</span></p>
-<p>通过保留前<span class="math inline">\(k\)</span>大的奇异值，分别对应<span class="math inline">\(U\)</span>的<strong>所有行，前k列</strong> ；<strong>sigma</strong> 的<strong>前k行，前k列</strong> ；<strong>VT</strong> 的<strong>前k行，所有列</strong> ，得到原始矩阵<span class="math inline">\(A\)</span>的不同近似矩阵。</p>
+<h3 id="SVD进行矩阵近似"><a href="#SVD进行矩阵近似" class="headerlink" title="SVD进行矩阵近似"></a>SVD进行矩阵近似</h3><p>奇异值越大，包含信息越多，因此可以选取合适的k值，保留比较大的奇异值及特征向量，实现用较小的数据量达到较好的矩阵近似效果，以达到压缩、降维、去除噪声和冗余数据的目的。</p>
+<p>原矩阵可近似表示为：$A_{mn}\approx U_{mk}\sum_{kk} V_{kn}^T$</p>
+<p>通过保留前$k$大的奇异值，分别对应$U$的<strong>所有行，前k列</strong> ；<strong>sigma</strong> 的<strong>前k行，前k列</strong> ；<strong>VT</strong> 的<strong>前k行，所有列</strong> ，得到原始矩阵$A$的不同近似矩阵。</p>
 <img src="/2021/12/12/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20211126012149.jpg" class="">
 <p>k=3，无损</p>
 <img src="/2021/12/12/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/image_21.png" class="">
@@ -494,47 +464,52 @@ A^n=Q(\sum)^n Q^{-1}
 <img src="/2021/12/12/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/image_22.png" class="">
 <p>k=1</p>
 <img src="/2021/12/12/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/image_23.png" class="">
-<h3 id="k的选取">k的选取</h3>
-<p>策略1：保留矩阵中90%的能量信息。即计算所有奇异值的平方和，前k个奇异值的平方和是总体平方和的90%。</p>
+<h3 id="k的选取"><a href="#k的选取" class="headerlink" title="k的选取"></a>k的选取</h3><p>策略1：保留矩阵中90%的能量信息。即计算所有奇异值的平方和，前k个奇异值的平方和是总体平方和的90%。</p>
 <p>策略2：当矩阵有上万的奇异值时，保留前面的2000或者3000个。缺点：不能保证这些奇异值包含90%以上的能量。因此，通常情况下，使用者要对数据有足够的了解，进而确定k值。</p>
-<hr />
-<h2 id="svd应用实例">SVD应用实例</h2>
-<h3 id="svd压缩图像">SVD压缩图像</h3>
-<ol type="1">
-<li><p>读取图片，将图片像素分解为3个矩阵，分别为R，G，B</p></li>
+<hr>
+<h2 id="SVD应用实例"><a href="#SVD应用实例" class="headerlink" title="SVD应用实例"></a>SVD应用实例</h2><h3 id="SVD压缩图像"><a href="#SVD压缩图像" class="headerlink" title="SVD压缩图像"></a>SVD压缩图像</h3><ol>
+<li><p>读取图片，将图片像素分解为3个矩阵，分别为R，G，B</p>
+</li>
 <li><p>对3个矩阵分别进行SVD压缩</p>
 <ul>
-<li><p>使用SVD，得到对应的奇异值</p></li>
-<li><p>按照一定的方式确定k值（可使用奇异值总和的百分比）</p></li>
-<li><p>使用<span class="math inline">\(A_{mn}\approx U_{mk}\sum_{kk} V_{kn}^T\)</span>，获得压缩后的数据</p></li>
-</ul></li>
-<li><p>将压缩后的矩阵进行叠加，重构图像。</p></li>
+<li><p>使用SVD，得到对应的奇异值</p>
+</li>
+<li><p>按照一定的方式确定k值（可使用奇异值总和的百分比）</p>
+</li>
+<li>使用$A_{mn}\approx U_{mk}\sum_{kk} V_{kn}^T$，获得压缩后的数据</li>
+</ul>
+</li>
+<li><p>将压缩后的矩阵进行叠加，重构图像。</p>
+</li>
 </ol>
-<hr />
-<h3 id="svd推荐商品">SVD推荐商品</h3>
-<p>推荐系统有很多种算法，常见的一种是基于<strong>协同过滤</strong> 的推荐算法。</p>
+<hr>
+<h3 id="SVD推荐商品"><a href="#SVD推荐商品" class="headerlink" title="SVD推荐商品"></a>SVD推荐商品</h3><p>推荐系统有很多种算法，常见的一种是基于<strong>协同过滤</strong> 的推荐算法。</p>
 <p>协同过滤包括<strong>基于物品的相似度</strong> 和<strong>基于用户的相似度</strong> 两类。</p>
 <p>一般常用基于物品的协同过滤，主要思想是给用户推荐那些和他们之前喜欢的物品相似的物品。</p>
-<ol type="1">
-<li><p>加载数据集</p></li>
-<li><p>定义相似度计算方法</p></li>
-<li><p>对商品矩阵进行SVD降维</p></li>
+<ol>
+<li><p>加载数据集</p>
+</li>
+<li><p>定义相似度计算方法</p>
+</li>
+<li><p>对商品矩阵进行SVD降维</p>
+</li>
 </ol>
-<p>    获取物品矩阵<span class="math inline">\(V\)</span></p>
-<p>    <span class="math display">\[
-\begin{aligned}
-A &amp;= U\sum V^T\\
-A_{mn} &amp;\approx U_{mk}\cdot (\sum)_{kk}\cdot (V^T)_{kn}\\
-(U\sum)^{-1}A &amp;=(U\sum)^{-1}V^T\\
-(\sum)^{-1}U^{-1}A &amp; = V^T\\
-V^T &amp; = (\sum)^{-1}U^TA\\
-V &amp; = A^TU((\sum)^{-1})^T\\
-V &amp; = A^TU(\sum)^{-1}\\
-V_{nk} &amp; = (A^T)_{nm}\cdot U_{mk}\cdot(\sum)^{-1}_{kk}
-\end{aligned} \]</span>​</p>
-<ol start="4" type="1">
-<li><p>在已经降维的数据中，对用户未打分的物品进行评分预测，返回未打分的物品ID和预测评分值</p></li>
-<li><p>产生前N个评分值高的物品，返回物品编号以及预测评分值</p></li>
+<p>&ensp;&ensp;&ensp;&ensp;获取物品矩阵$V$</p>
+<p>&ensp;&ensp;&ensp;&ensp;<script type="math/tex">\begin{aligned}
+A &= U\sum V^T\\
+A_{mn} &\approx U_{mk}\cdot (\sum)_{kk}\cdot (V^T)_{kn}\\
+(U\sum)^{-1}A &=(U\sum)^{-1}V^T\\
+(\sum)^{-1}U^{-1}A & = V^T\\
+V^T & = (\sum)^{-1}U^TA\\
+V & = A^TU((\sum)^{-1})^T\\
+V & = A^TU(\sum)^{-1}\\
+V_{nk} & = (A^T)_{nm}\cdot U_{mk}\cdot(\sum)^{-1}_{kk}
+\end{aligned}</script>​</p>
+<ol>
+<li><p>在已经降维的数据中，对用户未打分的物品进行评分预测，返回未打分的物品ID和预测评分值</p>
+</li>
+<li><p>产生前N个评分值高的物品，返回物品编号以及预测评分值</p>
+</li>
 </ol>
 
     </div>
