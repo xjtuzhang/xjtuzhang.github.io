@@ -1260,7 +1260,7 @@ pre code {
 }
 @media (min-width: 1600px) {
   .header-inner {
-    width: 900px;
+    width: 1920px;
   }
 }
 .site-brand-container {
@@ -1701,7 +1701,7 @@ pre code {
 }
 @media (min-width: 1600px) {
   .footer-inner {
-    width: 900px;
+    width: 1920px;
   }
 }
 .use-motion .footer {
@@ -2765,7 +2765,7 @@ hr {
 }
 @media (min-width: 1600px) {
   .main-inner {
-    width: 900px;
+    width: 1920px;
   }
 }
 @media (max-width: 767px) {
@@ -2832,7 +2832,7 @@ hr {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #d08388;
+  background: #d6d68c;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
